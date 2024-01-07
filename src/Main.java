@@ -1,9 +1,4 @@
 import java.util.Scanner;
-// check password
-// dai hon 8 ki tu
-// co chu
-// co so
-// co ki tu dac biet//
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
