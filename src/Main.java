@@ -1,13 +1,20 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
+        confirmPassword();
+    }
+    public static void confirmPassword() {
+        System.out.print("Enter your password: ");
         Scanner sc = new Scanner(System.in);
-        String password;
-        do {
-            System.out.print("Enter your password: ");
-            password = sc.nextLine();
+        String password=sc.nextLine();
+        if (checkPassword(password)){
+            System.out.println("Valid password");
         }
-        while (!checkPassword(password));
+        else {
+                System.out.print("Enter your password: ");
+                password = sc.nextLine();
+                confirmPassword();
+        }
     }
     public static boolean checkPassword(String password) {
         if (password.length() >= 8 && checkLetter(password) && checkNumber(password) && checkSpecialDigit(password)){
