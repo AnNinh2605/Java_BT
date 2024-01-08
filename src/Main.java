@@ -7,7 +7,13 @@ public class Main {
             System.out.print("Enter your password: ");
             password = sc.nextLine();
         }
-        while (!(password.length() > 8 && checkLetter(password) && checkNumber(password)));
+        while (!checkPassword(password));
+    }
+    public static boolean checkPassword(String password) {
+        if (password.length() >= 8 && checkLetter(password) && checkNumber(password) && checkSpecialDigit(password)){
+            return true;
+        }
+        return false;
     }
     public static boolean checkLetter (String password) {
         for (char arr: password.toCharArray()){
@@ -25,5 +31,15 @@ public class Main {
         }
         return false;
     }
+    public static boolean checkSpecialDigit (String password) {
+        String specialDigit = "!@#$%^&*()_+-=[]{};':\",.<>/?";
+        for (char arr: password.toCharArray()) {
+            if (specialDigit.contains(String.valueOf(arr))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
 
