@@ -7,7 +7,7 @@ public class GuessRandom {
         int ceiling = 100;
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Your guess: ");
+        System.out.print("Enter your guess:  ");
         int guess = sc.nextInt();
 
         while ((guess < 1) || (guess > 100)) {
@@ -15,33 +15,38 @@ public class GuessRandom {
             guess = sc.nextInt();
         }
         int random = (int)(Math.random()*100 + 1);
-        System.out.println("Random is: " +random);
+//        System.out.println("Random is: " +random);
 
         while (random != guess) {
             if (random > guess) {
-                System.out.println("Your number is lower than the one I picked, It ranges between " + guess+ " and " + ceiling);
                 floor = guess;
+                System.out.println("Your number is lower than the one I picked, It ranges between " + floor + " and " + ceiling);
             }
             else{
-                System.out.println("Your number is higher than the number I picked, It ranges between " + floor + " and " + guess);
+                ceiling = guess;
+                System.out.println("Your number is higher than the number I picked, It ranges between " + floor + " and " + ceiling);
             }
-            System.out.print("Your guess: ");
+            System.out.print("Enter your guess: ");
             guess = sc.nextInt();
             guessNum ++;
         }
         System.out.println("Correct! You guessed the number " + guess + " in " + guessNum + " tries.");
     }
     public static void main(String[] args) {
-        playGame();
-        System.out.println("Do you want to play again? (yes/no): yes");
         Scanner sc = new Scanner(System.in);
+        System.out.println("\n" +
+                "Welcome to the Number Guessing Game!\n" +
+                "I have selected a random number between 1 and 100.\n" +
+                "Try to guess what it is!");
+
+        playGame();
+        System.out.print("Do you want to play again? (yes/no): ");
         String nextPlay = sc.nextLine();
-        if (nextPlay.equals("yes")) {
+
+        while (nextPlay.equals("yes")) {
             playGame();
-        }
-        else {
-            System.out.println("See you");
+            System.out.print("Do you want to play again? (yes/no): ");
+            nextPlay =  sc.nextLine();
         }
     }
 }
-// chưa set được floor và ceiling hiện khoảng cần đoán  tiếp theo
