@@ -7,7 +7,7 @@ public class GuessRandom {
         int ceiling = 100;
         boolean flag = false;
 
-        int random = (int)(Math.random()*100 + 1);
+        int random = (int) (Math.random() * 100 + 1);
 //        System.out.println("Random is: " +random);
 
         while (!flag) {
@@ -20,20 +20,23 @@ public class GuessRandom {
                 guess = sc.nextInt();
             }
             if (random > guess) {
-                floor = guess;
+                if (guess > floor) {
+                    floor = guess;
+                }
                 System.out.println("Your number is lower than the one I picked, It ranges between " + floor + " and " + ceiling);
-            }
-            else if (random < guess){
-                ceiling = guess;
+            } else if (random < guess) {
+                if (guess < ceiling) {
+                    ceiling = guess;
+                }
                 System.out.println("Your number is higher than the number I picked, It ranges between " + floor + " and " + ceiling);
-            }
-            else {
+            } else {
                 System.out.println("Correct! You guessed the number " + guess + " in " + guessNum + " tries.");
-                 flag = !flag;
+                flag = true;
             }
-            guessNum ++;
+            guessNum++;
         }
     }
+
     public static void main(String[] args) {
         boolean flag = true;
         System.out.println("\n" +
