@@ -15,21 +15,26 @@ public class GuessRandom {
             System.out.print("Enter your guess:  ");
             int guess = sc.nextInt();
 
-            while ((guess < 1) || (guess > 100)) {
-                System.out.print("Your guess must between 1 and 100: ");
+            while ((guess < floor) || (guess > ceiling)) {
+                System.out.print("Your guess must between " + floor + " and " + ceiling + ": " );
                 guess = sc.nextInt();
             }
+
             if (random > guess) {
                 if (guess > floor) {
                     floor = guess;
                 }
                 System.out.println("Your number is lower than the one I picked, It ranges between " + floor + " and " + ceiling);
-            } else if (random < guess) {
+            }
+
+            else if (random < guess) {
                 if (guess < ceiling) {
                     ceiling = guess;
                 }
                 System.out.println("Your number is higher than the number I picked, It ranges between " + floor + " and " + ceiling);
-            } else {
+            }
+
+            else {
                 System.out.println("Correct! You guessed the number " + guess + " in " + guessNum + " tries.");
                 flag = true;
             }
