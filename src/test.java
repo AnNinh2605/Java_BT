@@ -3,9 +3,16 @@ import java.util.Scanner;
 
 public class test {
     public static void main(String[] args) {
-        long start = System.currentTimeMillis();
-
-
-        System.out.println("Sleep time in ms = " + (System.currentTimeMillis() - start));
+        while(true) {
+            try {
+                System.out.println("Enter: ");
+                Scanner sc = new Scanner(System.in);
+                int num = sc.nextInt();
+                break;
+            }
+            catch (Exception e) {
+                System.out.println("Loi");
+            }
+        }
     }
 }
