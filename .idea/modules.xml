@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/password_validation.iml" filepath="$PROJECT_DIR$/password_validation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BT_JAVA.iml" filepath="$PROJECT_DIR$/BT_JAVA.iml" />
     </modules>
   </component>
 </project>
