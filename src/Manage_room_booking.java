@@ -21,7 +21,7 @@ public class Manage_room_booking {
             sc.nextLine();
             while (select < 1 || select > 4) {
                 System.out.println("Choose 1 to Booking room, 2 to view Booking list, 3 to Calculate Minimum Number of Rooms Required, 4 to exit program) : ");
-                select = sc.nextInt();
+//                select = sc.nextLine();
                 sc.nextLine();
             }
             if (select == 1) {

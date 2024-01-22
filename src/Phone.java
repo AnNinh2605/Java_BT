@@ -124,3 +124,4 @@ public class Phone {
 }
 
 // confirm validate name
+// chưa xữ lí trường hợp select không phải 1234
