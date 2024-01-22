@@ -71,7 +71,10 @@ public class Phone {
                 System.out.print("Name : ");
                 String name = sc.nextLine();
                 //validate name
-
+                while(!checkName(name)){
+                    System.out.println("Name only letter: ");
+                    name = sc.nextLine();
+                };
                 //validate phone number
                 System.out.print("Phone number : ");
                 String phoneNumber = sc.nextLine();
