@@ -7,11 +7,8 @@ public class Manage_room_booking {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<String> nameArrayList = new ArrayList<String>();
-        ArrayList<String> checkInTimeArrayList = new ArrayList<String>();
-        ArrayList<String> checkOutTimeArrayList = new ArrayList<String>();
-        ArrayList<Integer> dayArrayList = new ArrayList<Integer>();
-        ArrayList<Integer> monthArrayList = new ArrayList<Integer>();
-        ArrayList<Integer> yearArrayList = new ArrayList<Integer>();
+        ArrayList<Integer> checkInTimeArrayList = new ArrayList<Integer>();
+        ArrayList<Integer> checkOutTimeArrayList = new ArrayList<Integer>();
 
         while (true) {
             System.out.print(
@@ -42,42 +39,28 @@ public class Manage_room_booking {
                     }
                 }
 
-                // day month year input
-                System.out.print("Day: ");
-                int day = sc.nextInt();
-                System.out.print("Month: ");
-                int month = sc.nextInt();
-                System.out.print("Year: ");
-                int year = sc.nextInt();
-
-                Calendar getdate = Calendar.getInstance();
-                getdate.set(year, month - 1, day);
-
-                int getYear = getdate.get(Calendar.YEAR);
-                int getMonth = getdate.get(Calendar.MONTH) + 1;
-                int getday = getdate.get(Calendar.DAY_OF_MONTH);
-                dayArrayList.add(getday);
-                monthArrayList.add(getMonth);
-                yearArrayList.add(getYear);
-
                 System.out.print("Check-in time: ");
-                String checkInTime = new Scanner(System.in).nextLine();
+                Integer checkInTime = new Scanner(System.in).nextInt();
                 checkInTimeArrayList.add(checkInTime);
 
                 System.out.print("Check-out time: ");
-                String checkoutTime = new Scanner(System.in).nextLine();
+                Integer checkoutTime = new Scanner(System.in).nextInt();
                 checkOutTimeArrayList.add(checkoutTime);
-                System.out.println("Create successful");
+                System.out.printf("Mr/Ms %s Booking successful: %sh to %sh ", name, checkInTime, checkoutTime);
             } else if (select == 2) {
                 System.out.println("Display Booking List");
                 for (int i = 0; i < nameArrayList.size(); i++) {
-                    System.out.println("Name: " + nameArrayList.get(i) + "\n" +
-                            "Booking day: " + dayArrayList.get(i) + "/" + monthArrayList.get(i) + "/" + yearArrayList.get(i)+"\n" +
-                            "Check in time: " + checkInTimeArrayList.get(i) + "\n" +
-                            "Check out time: " + checkOutTimeArrayList.get(i));
+                    System.out.printf("Mr/Ms %s Booking from %sh to %sh \n", nameArrayList.get(i), checkInTimeArrayList.get(i), checkOutTimeArrayList.get(i));
                 }
             } else if (select == 3) {
+                int countRoom = 1;
                 System.out.println("Calculate Minimum Number of Rooms Required");
+                for (int i = 1; i < checkInTimeArrayList.size(); i++) {
+                    if (checkOutTimeArrayList.getFirst() > checkInTimeArrayList.get(i)) {
+                        countRoom ++;
+                    }
+                }
+                System.out.println("Room request: " + countRoom);
             } else {
                 System.out.println("Exit program");
                 break;
@@ -95,4 +78,6 @@ public class Manage_room_booking {
         }
         return true;
     }
+
+
 }
